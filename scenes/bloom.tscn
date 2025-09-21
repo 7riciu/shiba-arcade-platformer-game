@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5qd2lrls7rtr"]
+
+[ext_resource type="Texture2D" uid="uid://cdrd545oagi4h" path="res://assets/bloom.png" id="1_qddbq"]
+[ext_resource type="PackedScene" uid="uid://4slk18pq1dbu" path="res://scenes/killzone.tscn" id="2_fi4um"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fi4um"]
+atlas = ExtResource("1_qddbq")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x6a7f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fi4um")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3jgjh"]
+radius = 6.0
+
+[node name="bloom" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_x6a7f")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="killzone" parent="." instance=ExtResource("2_fi4um")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_3jgjh")

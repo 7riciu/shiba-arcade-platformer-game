@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://bxcn8flp64gha"]
+
+[ext_resource type="Texture2D" uid="uid://clx3jlkx845lq" path="res://assets/moth.png" id="1_0cqwt"]
+[ext_resource type="PackedScene" uid="uid://4slk18pq1dbu" path="res://scenes/killzone.tscn" id="2_o7qfg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7qfg"]
+atlas = ExtResource("1_0cqwt")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2g3de"]
+atlas = ExtResource("1_0cqwt")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mue2v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7qfg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2g3de")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xi5yy"]
+radius = 4.472136
+
+[node name="moth" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mue2v")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.8316369
+
+[node name="killzone" parent="." instance=ExtResource("2_o7qfg")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_xi5yy")

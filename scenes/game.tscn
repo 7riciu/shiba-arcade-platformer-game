@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://3mqsv6xd2hde"]
+[gd_scene load_steps=10 format=3 uid="uid://3mqsv6xd2hde"]
 
 [ext_resource type="PackedScene" uid="uid://csq3dguqal5ee" path="res://scenes/player.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://c2fifji6tx3yf" path="res://scenes/coin.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://4slk18pq1dbu" path="res://scenes/killzone.tscn" id="4_iywne"]
 [ext_resource type="Texture2D" uid="uid://cddyy14smkfs1" path="res://assets/grass 1.3.png" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://bxcn8flp64gha" path="res://scenes/moth.tscn" id="5_p57ef"]
+[ext_resource type="PackedScene" uid="uid://c5qd2lrls7rtr" path="res://scenes/bloom.tscn" id="6_u5sy4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iywne"]
 texture = ExtResource("4_lbhrr")
@@ -60,6 +64,8 @@ texture = ExtResource("4_lbhrr")
 physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_iywne")
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lbhrr"]
+
 [node name="game" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -78,3 +84,27 @@ limit_left = -160
 limit_top = -238
 limit_right = 1040
 limit_bottom = 128
+
+[node name="Coins" type="Node" parent="."]
+
+[node name="coin 1" parent="Coins" instance=ExtResource("3_lnu2h")]
+position = Vector2(-120, -72)
+
+[node name="coin 2" parent="Coins" instance=ExtResource("3_lnu2h")]
+position = Vector2(536, 56)
+
+[node name="killzone" parent="." instance=ExtResource("4_iywne")]
+position = Vector2(463, 143)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+shape = SubResource("WorldBoundaryShape2D_lbhrr")
+
+[node name="Moths" type="Node" parent="."]
+
+[node name="moth" parent="Moths" instance=ExtResource("5_p57ef")]
+position = Vector2(54, 24)
+
+[node name="Blooms" type="Node2D" parent="."]
+
+[node name="bloom" parent="Blooms" instance=ExtResource("6_u5sy4")]
+position = Vector2(16, 24)

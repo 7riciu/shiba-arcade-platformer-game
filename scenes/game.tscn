@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://3mqsv6xd2hde"]
+[gd_scene load_steps=12 format=3 uid="uid://3mqsv6xd2hde"]
 
 [ext_resource type="PackedScene" uid="uid://csq3dguqal5ee" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://c2fifji6tx3yf" path="res://scenes/coin.tscn" id="3_lnu2h"]
@@ -64,6 +64,12 @@ texture = ExtResource("4_lbhrr")
 physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_iywne")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p57ef"]
+bg_color = Color(0.7150968, 0.687488, 0.6741575, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5sy4"]
+bg_color = Color(0.9785425, 0.3579289, 0.38957715, 1)
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lbhrr"]
 
 [node name="game" type="Node2D"]
@@ -84,6 +90,19 @@ limit_left = -160
 limit_top = -238
 limit_right = 1040
 limit_bottom = 128
+position_smoothing_enabled = true
+position_smoothing_speed = 4.0
+
+[node name="ProgressBar" type="ProgressBar" parent="Player"]
+offset_left = -9.0
+offset_top = -22.0
+offset_right = 9.0
+offset_bottom = -18.0
+theme_override_styles/background = SubResource("StyleBoxFlat_p57ef")
+theme_override_styles/fill = SubResource("StyleBoxFlat_u5sy4")
+max_value = 10.0
+value = 5.0
+show_percentage = false
 
 [node name="Coins" type="Node" parent="."]
 
@@ -107,4 +126,6 @@ position = Vector2(54, 24)
 [node name="Blooms" type="Node2D" parent="."]
 
 [node name="bloom" parent="Blooms" instance=ExtResource("6_u5sy4")]
-position = Vector2(16, 24)
+position = Vector2(18, 24)
+
+[connection signal="body_entered" from="killzone" to="Player" method="_on_killzone_body_entered"]

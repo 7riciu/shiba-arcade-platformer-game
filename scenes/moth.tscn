@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bxcn8flp64gha"]
+[gd_scene load_steps=8 format=3 uid="uid://bxcn8flp64gha"]
 
 [ext_resource type="Texture2D" uid="uid://clx3jlkx845lq" path="res://assets/moth.png" id="1_0cqwt"]
-[ext_resource type="PackedScene" uid="uid://4slk18pq1dbu" path="res://scenes/killzone.tscn" id="2_o7qfg"]
+[ext_resource type="Script" uid="uid://qiyn8j2mtexr" path="res://scripts/enemy.gd" id="1_o7qfg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o7qfg"]
 atlas = ExtResource("1_0cqwt")
@@ -25,19 +25,33 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xi5yy"]
-radius = 4.472136
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xi5yy"]
+size = Vector2(16, 16)
 
-[node name="moth" type="Area2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o7qfg"]
+size = Vector2(30, 29)
+
+[node name="Moth" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_o7qfg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mue2v")
 animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.8316369
 
-[node name="killzone" parent="." instance=ExtResource("2_o7qfg")]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xi5yy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
-position = Vector2(0, -3)
-shape = SubResource("CircleShape2D_xi5yy")
+[node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_o7qfg")
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]

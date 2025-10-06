@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://csq3dguqal5ee"]
+[gd_scene load_steps=8 format=3 uid="uid://csq3dguqal5ee"]
 
 [ext_resource type="Script" uid="uid://bk4p2h5je4mk6" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://cfrarjidfughg" path="res://assets/player.png" id="2_g2els"]
@@ -28,10 +28,14 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_jej6c"]
 radius = 6.0
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
+size = Vector2(24, 16)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visibility_layer = 2
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_3v2ag")
 animation = &"idle"
@@ -41,5 +45,18 @@ frame_progress = 0.91709286
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visibility_layer = 2
 z_index = 3
-position = Vector2(0, -7)
+position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_jej6c")
+
+[node name="AttackArea" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_g2els")
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]

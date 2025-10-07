@@ -29,9 +29,9 @@ animations = [{
 size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o7qfg"]
-size = Vector2(30, 29)
+size = Vector2(44, 16)
 
-[node name="Moth" type="CharacterBody2D"]
+[node name="Moth" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 2
 script = ExtResource("1_o7qfg")
 
@@ -46,12 +46,8 @@ shape = SubResource("RectangleShape2D_xi5yy")
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(0, 0.5)
+position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_o7qfg")
-
-[node name="HealthBar" type="TextureProgressBar" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
 
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
 [connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]

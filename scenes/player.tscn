@@ -29,7 +29,7 @@ animations = [{
 radius = 6.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(24, 16)
+size = Vector2(33, 18)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_g2els")
@@ -52,11 +52,8 @@ shape = SubResource("CircleShape2D_jej6c")
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(0, -8)
+position = Vector2(0.5, -9)
 shape = SubResource("RectangleShape2D_g2els")
 
-[node name="HealthBar" type="TextureProgressBar" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]

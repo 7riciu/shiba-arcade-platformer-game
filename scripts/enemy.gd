@@ -1,22 +1,19 @@
 extends CharacterBody2D
 
 @export var speed = 100
-@export var max_health = 60
-@export var attack_damage = 50
+@export var max_health = 20
+@export var attack_power = 10
 @export var attack_interval = 1.0
 
-var health = max_health
+var enemy_health = max_health
 var can_attack = true
 
-@onready var healthbar = $HealthBar
 @onready var attack_area = $AttackArea
-@onready var player_ref = get_node("/root/player")
-
-func _ready():
-	attack_area.connect("body_entered", Callable(self, "_on_attack_area_body_entered"))
-	attack_area.connect("body_exited", Callable(self, "_on_attack_area_body_exited"))
+@onready var player_ref = null
 
 func _physics_process(delta):
+	
+	# Moves towards player
 	if player_ref:
 		var dir = sign(player_ref.global_position.x - global_position.x)
 		velocity.x = dir * speed
@@ -25,8 +22,6 @@ func _physics_process(delta):
 
 	velocity.y += 900 * delta
 	move_and_slide()
-
-	healthbar.value = health
 
 func _on_attack_area_body_entered(body):
 	if body.is_in_group("player"):
@@ -42,7 +37,9 @@ func attack_player():
 		return
 
 	can_attack = false
-	player_ref.take_damage(attack_damage)
+	
+	# Calls the function from the player's script
+	player_ref.player_take_damage(attack_power)
 
 	await get_tree().create_timer(attack_interval).timeout
 	can_attack = true
@@ -51,10 +48,11 @@ func attack_player():
 	if player_ref and attack_area.get_overlapping_bodies().has(player_ref):
 		attack_player()
 
-func take_damage(amount):
-	health -= amount
-	if health <= 0:
-		die()
+func enemy_take_damage(amount):
+	enemy_health -= amount
+	if enemy_health <= 0:
+		enemy_die()
 
-func die():
+func enemy_die():
+	print("Enemy dead")
 	queue_free()

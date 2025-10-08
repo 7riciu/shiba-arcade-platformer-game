@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var speed = 100
 @export var max_health = 20
-@export var attack_power = 10
+@export var attack_power = 40
 @export var attack_interval = 1.0
 
 var enemy_health = max_health

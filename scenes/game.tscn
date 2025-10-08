@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://3mqsv6xd2hde"]
+[gd_scene load_steps=9 format=3 uid="uid://3mqsv6xd2hde"]
 
 [ext_resource type="Texture2D" uid="uid://cnh6odempmpsn" path="res://assets/grass tile map.png" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://csq3dguqal5ee" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://c2fifji6tx3yf" path="res://scenes/coin.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://4slk18pq1dbu" path="res://scenes/killzone.tscn" id="4_iywne"]
-[ext_resource type="PackedScene" uid="uid://bxcn8flp64gha" path="res://scenes/moth.tscn" id="5_p57ef"]
-[ext_resource type="PackedScene" uid="uid://c5qd2lrls7rtr" path="res://scenes/bloom.tscn" id="6_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://kfje88tpa1jj" path="res://scenes/bunny.tscn" id="7_u5sy4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u5sy4"]
 texture = ExtResource("1_p57ef")
@@ -43,16 +42,15 @@ layer_0/tile_data = PackedInt32Array(131071, 131072, 1, 65536, 131072, 1, 131070
 position = Vector2(-106, -69)
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
-position = Vector2(-66, 63)
+position = Vector2(-77, 56)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(27, -32)
-zoom = Vector2(3, 3)
-limit_left = -160
-limit_top = -238
-limit_right = 1040
-limit_bottom = 128
-position_smoothing_enabled = true
+position = Vector2(41, -42)
+zoom = Vector2(2.5, 2.5)
+limit_left = -320
+limit_top = -300
+limit_right = 1000
+limit_bottom = 192
 position_smoothing_speed = 4.0
 
 [node name="Coins" type="Node" parent="."]
@@ -69,14 +67,9 @@ position = Vector2(448, 199)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
 shape = SubResource("WorldBoundaryShape2D_lbhrr")
 
-[node name="Moths" type="Node" parent="."]
+[node name="Bunnies" type="Node" parent="."]
 
-[node name="moth" parent="Moths" instance=ExtResource("5_p57ef")]
-position = Vector2(69, 55)
-
-[node name="Blooms" type="Node2D" parent="."]
-
-[node name="bloom" parent="Blooms" instance=ExtResource("6_u5sy4")]
-position = Vector2(18, 24)
+[node name="bunny" parent="Bunnies" instance=ExtResource("7_u5sy4")]
+position = Vector2(183, 8)
 
 [connection signal="body_entered" from="killzone" to="Player" method="_on_killzone_body_entered"]

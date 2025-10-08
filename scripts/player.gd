@@ -43,9 +43,17 @@ func _physics_process(delta: float) -> void:
 	# Jump
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = jump_force
-	
+
 	if Input.is_action_just_released("Jump") and velocity.y < 0:
 		velocity.y = jump_force * decelerate_jump
+
+	# Animation
+	if not is_on_floor():
+		player_sprite.play("jump")
+	elif direction != 0:
+		player_sprite.play("walk")
+	else:
+		player_sprite.play("idle")
 
 	move_and_slide()
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfrarjidfughg"
-path="res://.godot/imported/player.png-be2216fcaabb5c62aa2466cd9a5726a8.ctex"
+uid="uid://bhsnndwnt3ann"
+path="res://.godot/imported/coal enemy.png-aa9f3ee5ca3004649f2e80f5916bf131.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player.png"
-dest_files=["res://.godot/imported/player.png-be2216fcaabb5c62aa2466cd9a5726a8.ctex"]
+source_file="res://assets/coal enemy.png"
+dest_files=["res://.godot/imported/coal enemy.png-aa9f3ee5ca3004649f2e80f5916bf131.ctex"]
 
 [params]
 

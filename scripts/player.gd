@@ -21,7 +21,7 @@ var attack_cooldown = false
 @onready var spawn_point = get_node("/root/game/SpawnPoint")
 
 func _physics_process(delta: float) -> void:
-
+	
 	# Move left-right
 	var direction = Input.get_axis("Left", "Right")
 

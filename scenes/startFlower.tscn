@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://dt6xg5vbu7ghp"]
+
+[ext_resource type="Texture2D" uid="uid://c2r3kdcj1k6qm" path="res://assets/start flower.png" id="1_qd7ap"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5q1h8"]
+atlas = ExtResource("1_qd7ap")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qd7ap"]
+atlas = ExtResource("1_qd7ap")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_movsm"]
+atlas = ExtResource("1_qd7ap")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_movsm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5q1h8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qd7ap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_movsm")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}]
+
+[node name="startFlower" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_movsm")
+animation = &"idle"
+autoplay = "idle"

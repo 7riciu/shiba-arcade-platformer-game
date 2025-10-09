@@ -353,13 +353,13 @@ autoplay = "idle"
 frame = 2
 frame_progress = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]
 visibility_layer = 2
 z_index = 3
 position = Vector2(-1, -8)
 shape = SubResource("RectangleShape2D_jej6c")
 
-[node name="AttackArea" type="Area2D" parent="."]
+[node name="AttackArea" type="Area2D" parent="." groups=["player"]]
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]

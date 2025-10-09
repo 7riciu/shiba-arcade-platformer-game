@@ -1,22 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://bxcn8flp64gha"]
+[gd_scene load_steps=7 format=3 uid="uid://bxcn8flp64gha"]
 
-[ext_resource type="Texture2D" uid="uid://clx3jlkx845lq" path="res://assets/moth.png" id="1_0cqwt"]
-[ext_resource type="Script" uid="uid://qiyn8j2mtexr" path="res://scripts/enemy.gd" id="1_o7qfg"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o7qfg"]
-atlas = ExtResource("1_0cqwt")
-region = Rect2(0, 0, 16, 16)
+[ext_resource type="Script" uid="uid://qiyn8j2mtexr" path="res://scripts/enemy.gd" id="1_6kswq"]
+[ext_resource type="Texture2D" uid="uid://bhsnndwnt3ann" path="res://assets/coal enemy.png" id="2_q5e8m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2g3de"]
-atlas = ExtResource("1_0cqwt")
-region = Rect2(16, 0, 16, 16)
+atlas = ExtResource("2_q5e8m")
+region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mue2v"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o7qfg")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2g3de")
 }],
@@ -25,28 +18,32 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xi5yy"]
-size = Vector2(16, 16)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mue2v"]
+radius = 8.0
+height = 24.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o7qfg"]
-size = Vector2(44, 16)
+size = Vector2(44, 17)
 
-[node name="Moth" type="CharacterBody2D" groups=["enemy"]]
+[node name="Basic enemy" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 2
-script = ExtResource("1_o7qfg")
+script = ExtResource("1_6kswq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mue2v")
 animation = &"idle"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_xi5yy")
+position = Vector2(0, 16)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_mue2v")
 
-[node name="AttackArea" type="Area2D" parent="."]
+[node name="AttackArea" type="Area2D" parent="." groups=["enemy"]]
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(1, 0)
+position = Vector2(0, 15.5)
 shape = SubResource("RectangleShape2D_o7qfg")
 
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]

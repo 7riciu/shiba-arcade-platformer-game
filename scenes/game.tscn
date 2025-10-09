@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://3mqsv6xd2hde"]
+[gd_scene load_steps=10 format=3 uid="uid://3mqsv6xd2hde"]
 
 [ext_resource type="Texture2D" uid="uid://cnh6odempmpsn" path="res://assets/grass tile map.png" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://csq3dguqal5ee" path="res://scenes/player.tscn" id="1_uwrxv"]
-[ext_resource type="PackedScene" uid="uid://c2fifji6tx3yf" path="res://scenes/coin.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://4slk18pq1dbu" path="res://scenes/killzone.tscn" id="4_iywne"]
-[ext_resource type="PackedScene" uid="uid://kfje88tpa1jj" path="res://scenes/bunny.tscn" id="7_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://bxcn8flp64gha" path="res://scenes/basicEnemy.tscn" id="4_p57ef"]
+[ext_resource type="PackedScene" uid="uid://da707pn7kxhgb" path="res://scenes/bunnyEnemy.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://dt6xg5vbu7ghp" path="res://scenes/startFlower.tscn" id="6_p57ef"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u5sy4"]
 texture = ExtResource("1_p57ef")
@@ -31,6 +32,7 @@ sources/0 = SubResource("TileSetAtlasSource_u5sy4")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lbhrr"]
 
 [node name="game" type="Node2D"]
+position = Vector2(-41, -30)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_gee14")
@@ -39,10 +41,10 @@ layer_0/name = "Base"
 layer_0/tile_data = PackedInt32Array(131071, 131072, 1, 65536, 131072, 1, 131070, 131072, 1, 65537, 131072, 1, 65538, 131072, 1, 196606, 131072, 2, 196607, 131072, 2, 131072, 131072, 2, 131073, 131072, 2, 131074, 131072, 2, 65539, 131072, 1, 65540, 131072, 1, 65541, 196608, 1, 131077, 196608, 2, 131076, 131072, 2, 131075, 131072, 2, 196605, 131072, 2, 131069, 131072, 2, 65533, 196608, 2, -3, 196608, 2, -65539, 196608, 1, -65540, 131072, 1, -65541, 131072, 1, -4, 131072, 2, -5, 131072, 2, 65531, 131072, 2, 65532, 131072, 2, 131068, 131072, 2, 131067, 131072, 2, 196603, 131072, 2, 196604, 131072, 2, 65544, 65536, 1, 10, 65536, 1, 131080, 65536, 2, 131081, 131072, 2, 65545, 131072, 1, 11, 131072, 1, 12, 131072, 1, 13, 131072, 1, 65546, 131072, 2, 131082, 131072, 2, 131083, 131072, 2, 65547, 131072, 2, 65548, 131072, 2, 131084, 131072, 2, 131085, 131072, 2, 65549, 131072, 2, 65550, 131072, 2, 131086, 131072, 2, 131087, 131072, 2, 65551, 131072, 2, 14, 131072, 1, 15, 131072, 1, 16, 196608, 1, 65552, 196608, 2, 131088, 196608, 2)
 
 [node name="SpawnPoint" type="Marker2D" parent="."]
-position = Vector2(-106, -69)
+position = Vector2(-45, 56)
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
-position = Vector2(-77, 56)
+position = Vector2(-45, 56)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(41, -42)
@@ -53,23 +55,19 @@ limit_right = 1000
 limit_bottom = 192
 position_smoothing_speed = 4.0
 
-[node name="Coins" type="Node" parent="."]
-
-[node name="coin 1" parent="Coins" instance=ExtResource("3_lnu2h")]
-position = Vector2(-157, -137)
-
-[node name="coin 2" parent="Coins" instance=ExtResource("3_lnu2h")]
-position = Vector2(559, 53)
-
 [node name="killzone" parent="." instance=ExtResource("4_iywne")]
 position = Vector2(448, 199)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
 shape = SubResource("WorldBoundaryShape2D_lbhrr")
 
-[node name="Bunnies" type="Node" parent="."]
+[node name="Basic enemy" parent="." instance=ExtResource("4_p57ef")]
+position = Vector2(69, 40)
 
-[node name="bunny" parent="Bunnies" instance=ExtResource("7_u5sy4")]
-position = Vector2(183, 8)
+[node name="Bunny" parent="." instance=ExtResource("5_iywne")]
+position = Vector2(223, 8)
+
+[node name="startFlower" parent="." instance=ExtResource("6_p57ef")]
+position = Vector2(-108, 40)
 
 [connection signal="body_entered" from="killzone" to="Player" method="_on_killzone_body_entered"]

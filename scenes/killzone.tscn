@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bg12umuvwajf3" path="res://scripts/killzone.gd" id="1_xlapc"]
 
-[node name="killzone" type="Area2D"]
+[node name="Killzone" type="Area2D"]
 script = ExtResource("1_xlapc")
 
 [node name="Timer" type="Timer" parent="."]

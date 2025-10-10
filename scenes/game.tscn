@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://4slk18pq1dbu" path="res://scenes/killzone.tscn" id="4_iywne"]
 [ext_resource type="PackedScene" uid="uid://bxcn8flp64gha" path="res://scenes/basicEnemy.tscn" id="4_p57ef"]
 [ext_resource type="PackedScene" uid="uid://da707pn7kxhgb" path="res://scenes/bunnyEnemy.tscn" id="5_iywne"]
-[ext_resource type="PackedScene" uid="uid://dt6xg5vbu7ghp" path="res://scenes/startFlower.tscn" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://bgk501dr6y7vu" path="res://scenes/starFlower.tscn" id="6_p57ef"]
 [ext_resource type="PackedScene" uid="uid://6tl6sptuo2jw" path="res://scenes/point.tscn" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://btwobl5eonivb" path="res://scenes/pointsCountUI.tscn" id="8_gee14"]
 
@@ -69,9 +69,6 @@ position = Vector2(69, 40)
 [node name="Bunny" parent="." instance=ExtResource("5_iywne")]
 position = Vector2(223, 8)
 
-[node name="startFlower" parent="." instance=ExtResource("6_p57ef")]
-position = Vector2(-108, 40)
-
 [node name="pointsCount" parent="." instance=ExtResource("8_gee14")]
 
 [node name="Points" type="Node2D" parent="."]
@@ -81,5 +78,8 @@ position = Vector2(120, 56)
 
 [node name="point" parent="Points" instance=ExtResource("7_u5sy4")]
 position = Vector2(97, 56)
+
+[node name="starFlower" parent="." instance=ExtResource("6_p57ef")]
+position = Vector2(-103, 40)
 
 [connection signal="body_entered" from="killzone" to="Player" method="_on_killzone_body_entered"]

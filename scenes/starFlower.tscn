@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://bgk501dr6y7vu"]
+
+[ext_resource type="Script" uid="uid://b30u44ur4ayd8" path="res://scripts/start_flower_area.gd" id="1_5q1h8"]
+[ext_resource type="Texture2D" uid="uid://c2r3kdcj1k6qm" path="res://assets/start flower.png" id="1_qd7ap"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5q1h8"]
+size = Vector2(52, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_movsm"]
+atlas = ExtResource("1_qd7ap")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6acif"]
+atlas = ExtResource("1_qd7ap")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7lnv"]
+atlas = ExtResource("1_qd7ap")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nbyrs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_movsm")
+}],
+"loop": true,
+"name": &"collected",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6acif")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7lnv")
+}],
+"loop": true,
+"name": &"default outline",
+"speed": 5.0
+}]
+
+[node name="starFlower" type="CharacterBody2D"]
+
+[node name="CollectArea" type="Area2D" parent="."]
+script = ExtResource("1_5q1h8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectArea"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_5q1h8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_nbyrs")
+animation = &"collected"
+autoplay = "default"

@@ -4,6 +4,10 @@ extends CanvasLayer
 
 var points_collected = 0
 
-func points_count():
+func map_points_count():
 	points_collected += 1
+	points_ui.text = "Points : " + str(points_collected)
+	
+func basic_enemy_points_count():
+	points_collected += 10
 	points_ui.text = "Points : " + str(points_collected)

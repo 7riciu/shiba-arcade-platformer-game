@@ -1,5 +1,9 @@
 extends CharacterBody2D
 
+@onready var points_ui = get_tree().get_first_node_in_group("ui")
+@onready var attack_area = $AttackArea
+@onready var player_ref = null
+
 @export var speed = 100
 @export var max_health = 20
 @export var attack_power = 40
@@ -7,9 +11,6 @@ extends CharacterBody2D
 
 var enemy_health = max_health
 var can_attack = true
-
-@onready var attack_area = $AttackArea
-@onready var player_ref = null
 
 func _physics_process(delta):
 	
@@ -38,7 +39,6 @@ func attack_player():
 
 	can_attack = false
 	
-	# Calls the function from the player's script
 	player_ref.player_take_damage(attack_power)
 
 	await get_tree().create_timer(attack_interval).timeout
@@ -55,4 +55,5 @@ func enemy_take_damage(amount):
 
 func enemy_die():
 	print("Enemy dead")
+	points_ui.basic_enemy_points_count()
 	queue_free()

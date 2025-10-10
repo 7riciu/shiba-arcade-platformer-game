@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://btwobl5eonivb"]
+
+[ext_resource type="Script" uid="uid://7tyr3wximdc2" path="res://scripts/points_ui.gd" id="1_puuml"]
+
+[node name="CanvasLayer" type="CanvasLayer" groups=["ui"]]
+script = ExtResource("1_puuml")
+
+[node name="PointsCount" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Points : 0"

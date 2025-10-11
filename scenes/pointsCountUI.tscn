@@ -6,6 +6,18 @@
 script = ExtResource("1_puuml")
 
 [node name="PointsCount" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 21.0
+offset_top = 12.0
+offset_right = 153.0
+offset_bottom = 54.0
+theme_override_font_sizes/font_size = 30
 text = "Points : 0"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 22.0
+offset_top = 55.0
+offset_right = 263.0
+offset_bottom = 104.0
+theme_override_font_sizes/font_size = 21
+text = "Press [ E ] to kill enemies
+Press [ R ] to collect the flowers"

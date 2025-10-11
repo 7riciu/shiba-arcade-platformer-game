@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var player_ref = null
 
 @export var speed = 100
-@export var max_health = 20
+@export var max_health = 40
 @export var attack_power = 40
 @export var attack_interval = 1.0
 

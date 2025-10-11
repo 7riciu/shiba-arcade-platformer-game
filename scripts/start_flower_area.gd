@@ -1,6 +1,6 @@
 extends Area2D
 
-@onready var flower_sprite = get_node("/root/game/starFlower/AnimatedSprite2D")
+@onready var flower_sprite = $AnimatedSprite2D
 @onready var points_ui = get_tree().get_first_node_in_group("ui")
 
 var can_collect = false
@@ -30,7 +30,7 @@ func is_not_collectable(body):
 			flower_sprite.play("collected")
 			
 func _process(delta: float) -> void:
-	if can_collect and Input.is_action_just_pressed("Collect"):
+	if not collected and can_collect and Input.is_action_just_pressed("Collect"):
 		flower_sprite.play("collected")
 		collected = true
 		points_ui.flower_points_count()

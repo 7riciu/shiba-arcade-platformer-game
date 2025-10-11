@@ -1,7 +1,7 @@
 extends Area2D
 
 @onready var flower_sprite = $AnimatedSprite2D
-@onready var points_ui = get_tree().get_first_node_in_group("ui")
+@onready var points_ui = get_tree().get_first_node_in_group("points")
 
 var can_collect = false
 var collected = false
@@ -14,7 +14,6 @@ func _ready():
 func is_collectable(body):
 	if body.is_in_group("player"):
 		can_collect = true
-		print("can collect flower")
 		if not collected:
 			flower_sprite.play("default outline")
 		else:
@@ -23,7 +22,6 @@ func is_collectable(body):
 func is_not_collectable(body):
 	if body.is_in_group("player"):
 		can_collect = false
-		print("can not collect flower")
 		if not collected:
 			flower_sprite.play("default")
 		else:

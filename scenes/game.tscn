@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://3mqsv6xd2hde"]
+[gd_scene load_steps=14 format=3 uid="uid://3mqsv6xd2hde"]
 
 [ext_resource type="Texture2D" uid="uid://cnh6odempmpsn" path="res://assets/grass tile map.png" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://csq3dguqal5ee" path="res://scenes/player.tscn" id="1_uwrxv"]
@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://bxcn8flp64gha" path="res://scenes/basicEnemy.tscn" id="4_p57ef"]
 [ext_resource type="PackedScene" uid="uid://da707pn7kxhgb" path="res://scenes/bunnyEnemy.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://bgk501dr6y7vu" path="res://scenes/starFlower.tscn" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://dptfohswavmpv" path="res://scenes/pet.tscn" id="7_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://6tl6sptuo2jw" path="res://scenes/point.tscn" id="7_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://dre3nsoppifyd" path="res://scenes/secret_guys.tscn" id="7_vtaks"]
 [ext_resource type="PackedScene" uid="uid://btwobl5eonivb" path="res://scenes/pointsCountUI.tscn" id="8_gee14"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u5sy4"]
@@ -158,9 +160,6 @@ position = Vector2(-145, -9)
 [node name="point7" parent="Points" instance=ExtResource("7_u5sy4")]
 position = Vector2(119, 119)
 
-[node name="point8" parent="Points" instance=ExtResource("7_u5sy4")]
-position = Vector2(152, 119)
-
 [node name="point9" parent="Points" instance=ExtResource("7_u5sy4")]
 position = Vector2(636, 182)
 
@@ -179,6 +178,36 @@ position = Vector2(104, -137)
 [node name="point14" parent="Points" instance=ExtResource("7_u5sy4")]
 position = Vector2(155, -137)
 
+[node name="point15" parent="Points" instance=ExtResource("7_u5sy4")]
+position = Vector2(770, -105)
+
+[node name="point16" parent="Points" instance=ExtResource("7_u5sy4")]
+position = Vector2(811, -105)
+
+[node name="point17" parent="Points" instance=ExtResource("7_u5sy4")]
+position = Vector2(853, -105)
+
+[node name="point18" parent="Points" instance=ExtResource("7_u5sy4")]
+position = Vector2(894, -105)
+
+[node name="point8" parent="Points" instance=ExtResource("7_u5sy4")]
+position = Vector2(152, 119)
+
+[node name="point19" parent="Points" instance=ExtResource("7_u5sy4")]
+position = Vector2(1015, 151)
+
+[node name="point20" parent="Points" instance=ExtResource("7_u5sy4")]
+position = Vector2(1052, 151)
+
+[node name="point21" parent="Points" instance=ExtResource("7_u5sy4")]
+position = Vector2(1089, 151)
+
+[node name="Pet" parent="Points" instance=ExtResource("7_0tnpc")]
+position = Vector2(18, -24)
+
+[node name="SecretGuys" parent="Points" instance=ExtResource("7_vtaks")]
+position = Vector2(-110, 40)
+
 [node name="Basic Enemies" type="Node2D" parent="."]
 
 [node name="Basic enemy2" parent="Basic Enemies" instance=ExtResource("4_p57ef")]
@@ -186,6 +215,12 @@ position = Vector2(374, 103)
 
 [node name="Basic enemy" parent="Basic Enemies" instance=ExtResource("4_p57ef")]
 position = Vector2(192, 104)
+
+[node name="Basic enemy3" parent="Basic Enemies" instance=ExtResource("4_p57ef")]
+position = Vector2(964, 136)
+
+[node name="Basic enemy4" parent="Basic Enemies" instance=ExtResource("4_p57ef")]
+position = Vector2(1164, 136)
 
 [node name="Star Flowers" type="Node2D" parent="."]
 
@@ -202,30 +237,3 @@ position = Vector2(530, 136)
 
 [node name="Bunny" parent="Bunnies" instance=ExtResource("5_iywne")]
 position = Vector2(750, 136)
-
-[node name="point" parent="." instance=ExtResource("7_u5sy4")]
-position = Vector2(770, -105)
-
-[node name="point2" parent="." instance=ExtResource("7_u5sy4")]
-position = Vector2(811, -105)
-
-[node name="point3" parent="." instance=ExtResource("7_u5sy4")]
-position = Vector2(853, -105)
-
-[node name="point4" parent="." instance=ExtResource("7_u5sy4")]
-position = Vector2(894, -105)
-
-[node name="Basic enemy" parent="." instance=ExtResource("4_p57ef")]
-position = Vector2(964, 136)
-
-[node name="point5" parent="." instance=ExtResource("7_u5sy4")]
-position = Vector2(1015, 151)
-
-[node name="point6" parent="." instance=ExtResource("7_u5sy4")]
-position = Vector2(1052, 151)
-
-[node name="point7" parent="." instance=ExtResource("7_u5sy4")]
-position = Vector2(1089, 151)
-
-[node name="Basic enemy2" parent="." instance=ExtResource("4_p57ef")]
-position = Vector2(1164, 136)

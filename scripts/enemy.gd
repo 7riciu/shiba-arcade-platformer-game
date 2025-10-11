@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var points_ui = get_tree().get_first_node_in_group("ui")
+@onready var points_ui = get_tree().get_first_node_in_group("points")
 @onready var attack_area = $AttackArea
 @onready var player_ref = null
 

@@ -1,17 +1,19 @@
-extends CanvasLayer
-
-@onready var points_ui = $PointsCount
+extends Label
 
 var points_collected = 0
 
 func map_points_count():
 	points_collected += 1
-	points_ui.text = "Points : " + str(points_collected)
+	self.text = "Points : " + str(points_collected)
 
 func basic_enemy_points_count():
 	points_collected += 10
-	points_ui.text = "Points : " + str(points_collected)
+	self.text = "Points : " + str(points_collected)
 
 func flower_points_count():
 	points_collected += 10
-	points_ui.text = "Points : " + str(points_collected)
+	self.text = "Points : " + str(points_collected)
+	
+func pet_points_count():
+	points_collected += 5
+	self.text = "Points : " + str(points_collected)

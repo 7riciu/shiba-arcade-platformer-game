@@ -1,23 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://btwobl5eonivb"]
+[gd_scene load_steps=3 format=3 uid="uid://btwobl5eonivb"]
 
 [ext_resource type="Script" uid="uid://7tyr3wximdc2" path="res://scripts/points_ui.gd" id="1_puuml"]
+[ext_resource type="Script" uid="uid://dwyh4c38pgnge" path="res://scripts/secret_ui.gd" id="2_1uwhi"]
 
-[node name="CanvasLayer" type="CanvasLayer" groups=["ui"]]
-script = ExtResource("1_puuml")
+[node name="CanvasLayer" type="CanvasLayer"]
 
-[node name="PointsCount" type="Label" parent="."]
+[node name="PointsCount" type="Label" parent="." groups=["points"]]
 offset_left = 21.0
 offset_top = 12.0
 offset_right = 153.0
 offset_bottom = 54.0
 theme_override_font_sizes/font_size = 30
 text = "Points : 0"
+script = ExtResource("1_puuml")
 
-[node name="Label" type="Label" parent="."]
-offset_left = 22.0
+[node name="SecretGuysCount" type="Label" parent="." groups=["secret guys"]]
+offset_left = 21.0
 offset_top = 55.0
-offset_right = 263.0
+offset_right = 262.0
 offset_bottom = 104.0
-theme_override_font_sizes/font_size = 21
-text = "Press [ E ] to kill enemies
-Press [ R ] to collect the flowers"
+theme_override_font_sizes/font_size = 23
+text = "Secret guys collected:"
+script = ExtResource("2_1uwhi")

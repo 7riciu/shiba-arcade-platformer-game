@@ -12,12 +12,10 @@ func _ready():
 	
 func near_secret(body):
 	if body.is_in_group("player"):
-		print("Secret")
 		can_collect = true
 
 func not_near_secret(body):
 	if body.is_in_group("player"):
-		print("not secret")
 		can_collect = false
 		
 func _process(delta):

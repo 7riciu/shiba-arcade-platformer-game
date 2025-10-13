@@ -18,7 +18,7 @@ func not_near_pet(body):
 	if body.is_in_group("player"):
 		can_pet = false
 		
-func _process(delta: float) -> void:
+func _process(_delta):
 	if not pet and can_pet and Input.is_action_just_pressed("Collect"):
 		pet = true
 		points_ui.pet_points_count()

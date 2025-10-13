@@ -27,7 +27,7 @@ func is_not_collectable(body):
 		else:
 			flower_sprite.play("collected")
 			
-func _process(delta: float) -> void:
+func _process(_delta):
 	if not collected and can_collect and Input.is_action_just_pressed("Collect"):
 		flower_sprite.play("collected")
 		collected = true

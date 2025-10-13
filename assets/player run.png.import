@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bde4ksep4u7i5"
-path="res://.godot/imported/male_hero_template-jump.png-551e9abb8df4112d3b5ee45ca73f5b27.ctex"
+uid="uid://dsve73du43lp"
+path="res://.godot/imported/player run.png-c878d97c0d9047541cebfa3a4099c9dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/male_hero_template-jump.png"
-dest_files=["res://.godot/imported/male_hero_template-jump.png-551e9abb8df4112d3b5ee45ca73f5b27.ctex"]
+source_file="res://assets/player run.png"
+dest_files=["res://.godot/imported/player run.png-c878d97c0d9047541cebfa3a4099c9dd.ctex"]
 
 [params]
 

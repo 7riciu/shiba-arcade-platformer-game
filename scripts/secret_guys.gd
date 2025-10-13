@@ -18,7 +18,7 @@ func not_near_secret(body):
 	if body.is_in_group("player"):
 		can_collect = false
 		
-func _process(delta):
+func _process(_delta):
 	if not collected and can_collect and Input.is_action_just_pressed("Collect"):
 		collected = true
 		secret_ui.add_secret()

@@ -5,7 +5,6 @@ extends CharacterBody2D
 @export_range(0, 1) var acceleration = 0.1
 
 @export var jump_force : int = -400
-@export_range(0, 1) var decelerate_jump = 0.5
 
 @export var gravity : int = 800
 
@@ -20,7 +19,7 @@ var attack_cooldown = false
 @onready var attack_area = $AttackArea
 @onready var spawn_point = get_node("/root/game/SpawnPoint")
 
-func _physics_process(delta: float) -> void:
+func _physics_process(delta):
 	
 	# Move left-right
 	var direction = Input.get_axis("Left", "Right")
@@ -43,9 +42,6 @@ func _physics_process(delta: float) -> void:
 	# Jump
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = jump_force
-
-	if Input.is_action_just_released("Jump") and velocity.y < 0:
-		velocity.y = jump_force * decelerate_jump
 
 	# Animation
 	if not is_on_floor():

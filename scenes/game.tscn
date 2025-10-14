@@ -179,7 +179,7 @@ visible = false
 position = Vector2(18, -24)
 
 [node name="enemy barrier" parent="." instance=ExtResource("10_vtaks")]
-position = Vector2(1447, -45)
+position = Vector2(1016, -44)
 
 [node name="enemy barrier2" parent="." instance=ExtResource("10_vtaks")]
-position = Vector2(1703, -45)
+position = Vector2(842, -44)

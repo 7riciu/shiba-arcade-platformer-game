@@ -5,5 +5,5 @@ size = Vector2(20, 24)
 
 [node name="enemy barrier" type="StaticBody2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["enemy limit"]]
 shape = SubResource("RectangleShape2D_48e0d")

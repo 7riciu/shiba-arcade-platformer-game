@@ -3,8 +3,8 @@ extends CharacterBody2D
 @onready var points_ui = get_tree().get_first_node_in_group("points")
 @onready var enemy_sprite = $AnimatedSprite2D
 @onready var attack_area = $AttackArea
-@onready var ray_cast_left = $RayCastLeft
-@onready var ray_cast_right = $RayCastRight
+@onready var ray_cast_left = $RayLeft
+@onready var ray_cast_right = $RayRight
 @onready var barrier_left = get_node("/root/game/enemy barrier")
 @onready var player_ref = null
 
@@ -13,7 +13,7 @@ extends CharacterBody2D
 @export var attack_power = 40
 @export var attack_interval = 1.0
 
-var dir = 1
+var dir = -1
 var enemy_health = max_health
 var can_attack = true
 
@@ -24,13 +24,13 @@ func _ready() -> void:
 func _physics_process(delta):
 
 	velocity.y += 900 * delta
-	
+
 	if ray_cast_left.is_colliding():
+		print("Left")
 		dir = 1
-		enemy_sprite.flip_h = false
 	elif ray_cast_right.is_colliding():
+		print("Right")
 		dir = -1
-		enemy_sprite.flip_h = true
 
 	velocity.x = dir * speed
 	move_and_slide()

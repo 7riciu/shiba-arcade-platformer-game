@@ -46,6 +46,8 @@ func _physics_process(delta):
 	# Animation
 	if not is_on_floor():
 		player_sprite.play("jump")
+		player_sprite.frame = 3
+		player_sprite.stop()
 	elif direction != 0:
 		player_sprite.play("walk")
 	else:

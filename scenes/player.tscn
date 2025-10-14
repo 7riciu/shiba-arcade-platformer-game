@@ -1,24 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://csq3dguqal5ee"]
+[gd_scene load_steps=18 format=3 uid="uid://csq3dguqal5ee"]
 
 [ext_resource type="Script" uid="uid://bk4p2h5je4mk6" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://b0sy7m72aipk3" path="res://assets/player idle.png" id="2_dqkch"]
 [ext_resource type="Texture2D" uid="uid://b6f7qdfebem6l" path="res://assets/player jump.png" id="3_qlg0r"]
-[ext_resource type="Texture2D" uid="uid://dsve73du43lp" path="res://assets/player run.png" id="4_tuyoq"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fjrip"]
-load_path = "res://.godot/imported/male_hero_template-combo_1.png-91baeb7d6574f0021b2ecef3ca49f423.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jej6c"]
-atlas = SubResource("CompressedTexture2D_fjrip")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f1ej7"]
-atlas = SubResource("CompressedTexture2D_fjrip")
-region = Rect2(128, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oprun"]
-atlas = SubResource("CompressedTexture2D_fjrip")
-region = Rect2(256, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
 atlas = ExtResource("2_dqkch")
@@ -48,30 +32,24 @@ region = Rect2(128, 0, 128, 128)
 atlas = ExtResource("3_qlg0r")
 region = Rect2(256, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fulsm"]
-atlas = ExtResource("4_tuyoq")
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
+atlas = ExtResource("2_dqkch")
 region = Rect2(0, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4r5pv"]
-atlas = ExtResource("4_tuyoq")
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
+atlas = ExtResource("2_dqkch")
 region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
+atlas = ExtResource("2_dqkch")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
+atlas = ExtResource("2_dqkch")
+region = Rect2(384, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3v2ag"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jej6c")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f1ej7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oprun")
-}],
-"loop": false,
-"name": &"attack",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_smehm")
@@ -105,10 +83,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fulsm")
+"texture": SubResource("AtlasTexture_qhqgy")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4r5pv")
+"texture": SubResource("AtlasTexture_dqkch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlg0r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuyoq")
 }],
 "loop": true,
 "name": &"walk",
@@ -128,7 +112,7 @@ script = ExtResource("1_g2els")
 visibility_layer = 2
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_3v2ag")
-animation = &"walk"
+animation = &"jump"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["player"]]

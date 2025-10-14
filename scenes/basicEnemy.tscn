@@ -27,6 +27,7 @@ size = Vector2(44, 17)
 
 [node name="Basic enemy" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_6kswq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -43,8 +44,21 @@ shape = SubResource("CapsuleShape2D_mue2v")
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(0, 15.5)
+position = Vector2(0, 16)
 shape = SubResource("RectangleShape2D_o7qfg")
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(0, 16)
+target_position = Vector2(-33, 0)
+collision_mask = 4
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(0, 16)
+target_position = Vector2(33, 0)
+hit_from_inside = true
+collide_with_areas = true
 
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
 [connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]

@@ -5,7 +5,6 @@ extends CharacterBody2D
 @onready var attack_area = $AttackArea
 @onready var ray_cast_left = $RayLeft
 @onready var ray_cast_right = $RayRight
-@onready var barrier_left = get_node("/root/game/enemy barrier")
 @onready var player_ref = null
 
 @export var speed = 100
@@ -26,10 +25,8 @@ func _physics_process(delta):
 	velocity.y += 900 * delta
 
 	if ray_cast_left.is_colliding():
-		print("Left")
 		dir = 1
 	elif ray_cast_right.is_colliding():
-		print("Right")
 		dir = -1
 
 	velocity.x = dir * speed

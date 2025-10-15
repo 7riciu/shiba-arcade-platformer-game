@@ -109,7 +109,6 @@ size = Vector2(59, 38)
 script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-visibility_layer = 2
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_3v2ag")
 animation = &"jump"

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0sy7m72aipk3"
-path="res://.godot/imported/player idle.png-676679c204400743f9b69aee17418f9e.ctex"
+uid="uid://dda5ef1h8olxu"
+path="res://.godot/imported/deer 2 outline.png-3c71a3befbac0599d7301e9a68c3fa92.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player idle.png"
-dest_files=["res://.godot/imported/player idle.png-676679c204400743f9b69aee17418f9e.ctex"]
+source_file="res://assets/deer 2 outline.png"
+dest_files=["res://.godot/imported/deer 2 outline.png-3c71a3befbac0599d7301e9a68c3fa92.ctex"]
 
 [params]
 

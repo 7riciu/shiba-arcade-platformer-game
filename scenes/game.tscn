@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://3mqsv6xd2hde"]
+[gd_scene load_steps=13 format=3 uid="uid://3mqsv6xd2hde"]
 
 [ext_resource type="PackedScene" uid="uid://csq3dguqal5ee" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://01fmc652yg3p" path="res://assets/tiles 3.png" id="3_kvpfn"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://6tl6sptuo2jw" path="res://scenes/point.tscn" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://dre3nsoppifyd" path="res://scenes/secret_guys.tscn" id="7_vtaks"]
 [ext_resource type="PackedScene" uid="uid://btwobl5eonivb" path="res://scenes/UI.tscn" id="8_gee14"]
+[ext_resource type="PackedScene" uid="uid://dptfohswavmpv" path="res://scenes/pet.tscn" id="10_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://dg2l8upfa8s61" path="res://scenes/enemy barriers.tscn" id="10_vtaks"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0tnpc"]
@@ -163,7 +164,7 @@ position = Vector2(750, 136)
 [node name="Secret Guys" type="Node2D" parent="."]
 
 [node name="SecretGuys" parent="Secret Guys" instance=ExtResource("7_vtaks")]
-position = Vector2(-192, 488)
+position = Vector2(-192, 487)
 
 [node name="SecretGuys2" parent="Secret Guys" instance=ExtResource("7_vtaks")]
 visible = false
@@ -192,3 +193,6 @@ position = Vector2(1416, -44)
 
 [node name="enemy barrier6" parent="enemy barriers" instance=ExtResource("10_vtaks")]
 position = Vector2(1816, -44)
+
+[node name="Area2D" parent="." instance=ExtResource("10_kvpfn")]
+position = Vector2(837, 424)

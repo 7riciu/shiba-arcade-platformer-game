@@ -95,3 +95,6 @@ func reset_player():
 		
 func die():
 	get_tree().change_scene_to_file("res://scenes/starting_screen.tscn")
+	
+func gain_heart():
+	heart_count += 1

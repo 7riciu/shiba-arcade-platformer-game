@@ -8,3 +8,5 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if player_sprite.heart_count < 1:
 		self.visible = false
+	else:
+		self.visible = true

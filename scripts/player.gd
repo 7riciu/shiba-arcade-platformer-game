@@ -9,6 +9,7 @@ extends CharacterBody2D
 @export var gravity : int = 1000
 
 @export var max_health = 100
+@export var heart_count = 3
 var player_health = max_health
 
 @export var attack_power = 20
@@ -78,13 +79,19 @@ func _on_attack_area_body_entered(body):
 func player_take_damage(amount):
 	player_health -= amount
 	if player_health <= 0:
-		die()
+		reset_player()
 
-func die():
-	print("You died")
-	reset_player()
-	
 func reset_player():
-	global_position = spawn_point.global_position
-	velocity = Vector2.ZERO
-	player_health = max_health
+	
+	heart_count -= 1
+	
+	if heart_count < 1:
+		die()
+	else:
+		global_position = spawn_point.global_position
+		velocity = Vector2.ZERO
+		player_health = max_health
+		print("You lost a heart")
+		
+func die():
+	get_tree().change_scene_to_file("res://scenes/starting_screen.tscn")

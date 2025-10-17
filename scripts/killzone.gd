@@ -1,6 +1,5 @@
 extends Area2D
 
-@onready var spawn_point = get_node("/root/game/SpawnPoint")
 var touched_killzone = false
 
 func _ready():
@@ -8,4 +7,4 @@ func _ready():
 	
 func in_killzone(body):
 	if body.is_in_group("player"):
-		body.die()
+		body.reset_player()

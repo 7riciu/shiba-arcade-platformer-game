@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://3mqsv6xd2hde"]
+[gd_scene load_steps=14 format=3 uid="uid://3mqsv6xd2hde"]
 
 [ext_resource type="PackedScene" uid="uid://csq3dguqal5ee" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://01fmc652yg3p" path="res://assets/tiles 3.png" id="3_kvpfn"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://btwobl5eonivb" path="res://scenes/UI.tscn" id="8_gee14"]
 [ext_resource type="PackedScene" uid="uid://dptfohswavmpv" path="res://scenes/pet.tscn" id="10_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://dg2l8upfa8s61" path="res://scenes/enemy barriers.tscn" id="10_vtaks"]
+[ext_resource type="PackedScene" uid="uid://cfobqdicgwhph" path="res://scenes/killzone.tscn" id="11_kvpfn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0tnpc"]
 texture = ExtResource("3_kvpfn")
@@ -196,3 +197,6 @@ position = Vector2(1816, -44)
 
 [node name="Area2D" parent="." instance=ExtResource("10_kvpfn")]
 position = Vector2(837, 424)
+
+[node name="killzone" parent="." instance=ExtResource("11_kvpfn")]
+position = Vector2(-36, 546)

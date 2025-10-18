@@ -23,4 +23,5 @@ func _process(_delta):
 	if not pet and can_pet and Input.is_action_just_pressed("Collect"):
 		pet = true
 		points_ui.pet_points_count()
+		pet_sprite.play("pet")
 		player_sprite.gain_heart()

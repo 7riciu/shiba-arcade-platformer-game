@@ -4,9 +4,9 @@
 [ext_resource type="Script" uid="uid://dwyh4c38pgnge" path="res://scripts/secret_ui.gd" id="2_1uwhi"]
 [ext_resource type="Texture2D" uid="uid://4eqkkrfylb4l" path="res://assets/health bar.png" id="3_5en4g"]
 [ext_resource type="Texture2D" uid="uid://bwx8d14cakt77" path="res://assets/heart.png" id="4_ua6yw"]
-[ext_resource type="Script" uid="uid://drwgral80p12y" path="res://scenes/heart_2_ui.gd" id="5_3wlde"]
+[ext_resource type="Script" uid="uid://drwgral80p12y" path="res://scripts/heart_2_ui.gd" id="5_3wlde"]
 [ext_resource type="Script" uid="uid://b68xghrxrjjql" path="res://scripts/heart_3_ui.gd" id="5_75u2n"]
-[ext_resource type="Script" uid="uid://dwtt6dpo6c7gi" path="res://scenes/heart_1_ui.gd" id="5_xpksx"]
+[ext_resource type="Script" uid="uid://dwtt6dpo6c7gi" path="res://scripts/heart_1_ui.gd" id="5_xpksx"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 

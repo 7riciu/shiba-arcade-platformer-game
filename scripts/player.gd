@@ -88,12 +88,14 @@ func reset_player():
 	if heart_count < 1:
 		die()
 	else:
+		await get_tree().create_timer(0.1).timeout
 		global_position = spawn_point.global_position
 		velocity = Vector2.ZERO
 		player_health = max_health
 		print("You lost a heart")
 		
 func die():
+	await get_tree().create_timer(0.1).timeout
 	get_tree().change_scene_to_file("res://scenes/starting_screen.tscn")
 	
 func gain_heart():

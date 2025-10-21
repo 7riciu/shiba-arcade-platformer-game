@@ -1,6 +1,7 @@
 extends Area2D
 
 @onready var secret_sprite = $AnimatedSprite2D
+@onready var letter_R = $"Letter R"
 @onready var secret_ui = get_tree().get_first_node_in_group("secret guys")
 
 var can_collect = false
@@ -22,3 +23,8 @@ func _process(_delta):
 	if not collected and can_collect and Input.is_action_just_pressed("Collect"):
 		collected = true
 		secret_ui.add_secret()
+	
+	if not collected and can_collect:
+		letter_R.visible = true
+	else:
+		letter_R.visible = false

@@ -1,6 +1,7 @@
 extends Area2D
 
 @onready var pet_sprite = $AnimatedSprite2D
+@onready var letter_R = $"Letter R"
 @onready var points_ui = get_tree().get_first_node_in_group("points")
 @onready var player_sprite = get_tree().get_first_node_in_group("player")
 
@@ -25,3 +26,8 @@ func _process(_delta):
 		points_ui.pet_points_count()
 		pet_sprite.play("pet")
 		player_sprite.gain_heart()
+		
+	if not pet and can_pet:
+		letter_R.visible = true
+	else:
+		letter_R.visible = false

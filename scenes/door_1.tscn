@@ -1,17 +1,17 @@
 [gd_scene load_steps=6 format=3 uid="uid://8h062k704t5t"]
 
 [ext_resource type="Script" uid="uid://copdvesgm26wa" path="res://door_1.gd" id="1_ajw6c"]
-[ext_resource type="Texture2D" uid="uid://bf1482tkeh2aw" path="res://assets/little guy 1.png" id="2_c5ya1"]
+[ext_resource type="Texture2D" uid="uid://c7jhh6fy5onua" path="res://assets/tree gate.png" id="2_ajw6c"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r1g8b"]
-atlas = ExtResource("2_c5ya1")
-region = Rect2(0, 0, 48, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5ya1"]
+atlas = ExtResource("2_ajw6c")
+region = Rect2(0, 0, 144, 232)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fupie"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_r1g8b")
+"texture": SubResource("AtlasTexture_c5ya1")
 }],
 "loop": true,
 "name": &"default",
@@ -19,16 +19,16 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2myo"]
-size = Vector2(137, 224)
+size = Vector2(85.5, 136)
 
 [node name="door1" type="Area2D"]
 script = ExtResource("1_ajw6c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(54.5, 83.5)
-scale = Vector2(3.2708333, 4.4791665)
+scale = Vector2(1, 1.37)
 sprite_frames = SubResource("SpriteFrames_fupie")
 
 [node name="EnterArea" type="CollisionShape2D" parent="."]
-position = Vector2(55.5, 80)
+position = Vector2(55, 175)
 shape = SubResource("RectangleShape2D_h2myo")
